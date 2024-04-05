@@ -1,0 +1,52 @@
+version : '3'
+
+services:
+  php-website:
+    build: website/config
+    container_name: php-website
+    volumes: 
+      - ./website/src:/var/www/html
+      - /var/log/apache2/app:/var/log/apache2/
+    env_file: .env
+    ports:
+      - '80:80'
+    networks:
+      - app_network
+
+  php-api:
+    build: api/config
+    container_name: php-api
+    volumes:
+      - ./api/src:/var/www/html
+      - /var/log/apache2/app:/var/log/apache2/
+    env_file: .env
+    ports:
+      - '8080:80'
+    networks:
+      - app_network
+
+  db:
+    image: mysql:8.3.0
+    volumes:
+      - db_data:/var/lib/mysql
+    env_file: .env
+    ports:
+      - '3306:3306'
+    networks:
+      - app_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    env_file: .env
+    ports:
+      - '8081:80'
+    networks:
+      - app_network
+    depends_on:
+      - db
+
+networks:
+  app_network:
+
+volumes:
+  db_data:

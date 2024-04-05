@@ -8,5 +8,6 @@
 
 <body>
     <h1>Hello World !</h1>
+    <h1>Env user: <?php echo $_ENV['MYSQL_USER'] ?></h1>
 </body>
 </html>

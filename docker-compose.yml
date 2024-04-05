@@ -7,6 +7,7 @@ services:
     volumes: 
       - ./website/src:/var/www/html
       - /var/log/apache2/app:/var/log/apache2/
+    env_file: .env
     ports:
       - '80:80'
     networks:
@@ -18,6 +19,7 @@ services:
     volumes:
       - ./api/src:/var/www/html
       - /var/log/apache2/app:/var/log/apache2/
+    env_file: .env
     ports:
       - '8080:80'
     networks:
@@ -27,11 +29,7 @@ services:
     image: mysql:8.3.0
     volumes:
       - db_data:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: db
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+    env_file: .env
     ports:
       - '3306:3306'
     networks:
@@ -39,9 +37,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    environment:
-      PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: root
+    env_file: .env
     ports:
       - '8081:80'
     networks:

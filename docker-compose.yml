@@ -1,0 +1,56 @@
+version : '3'
+
+services:
+  php-website:
+    build: website/config
+    container_name: php-website
+    volumes: 
+      - ./website/src:/var/www/html
+      - /var/log/apache2/app:/var/log/apache2/
+    ports:
+      - '80:80'
+    networks:
+      - app_network
+
+  php-api:
+    build: api/config
+    container_name: php-api
+    volumes:
+      - ./api/src:/var/www/html
+      - /var/log/apache2/app:/var/log/apache2/
+    ports:
+      - '8080:80'
+    networks:
+      - app_network
+
+  db:
+    image: mysql:8.3.0
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - '3306:3306'
+    networks:
+      - app_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - '8081:80'
+    networks:
+      - app_network
+    depends_on:
+      - db
+
+networks:
+  app_network:
+
+volumes:
+  db_data:

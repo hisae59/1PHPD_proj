@@ -1,0 +1,40 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+header{
+    position: relative;
+    width: 100%;
+    height:700px;
+    background: url('../img/gmk_affiche.png') no-repeat center center/cover;
+    z-index: 2;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(28, 29, 31, .5) 26.11%, rgba(28, 29, 31, 0) 100%);
+}
+body{
+    margin: 0;
+}
+
+header::after{
+    position: relative;
+    width: 30%;
+    content: '';
+    height: 100%;
+    
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+h3 a{
+    text-decoration: none;
+    color: #f1f2f6;
+    padding: 2em;
+    font-family: Oswald ;
+}

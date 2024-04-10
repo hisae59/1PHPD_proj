@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+h1 a{
+    text-decoration: none;
+    color:#f1f2f6;
+    font-family: Oswald;
+    width: 100%;
+    font-size: 1.6em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+
+h1 a:hover{
+    color:#6CB0E4;
+}
+
+#categ{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}

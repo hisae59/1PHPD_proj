@@ -2,7 +2,7 @@ FROM php:8.2-apache
 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y zlib1g-dev libwebp-dev libpng-dev libzip-dev && \
-    docker-php-ext-install gd zip pdo_mysql
+    docker-php-ext-install gd zip mysqli
 
 RUN a2enmod rewrite && \
     a2enmod autoindex

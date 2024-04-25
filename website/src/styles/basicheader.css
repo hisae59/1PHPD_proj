@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+header{
+    position: relative;
+    width: 100%;
+    
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    background: #121211;
+}
+body{
+    margin: 0;
+    background-color: #121211;
+}
+
+
+
+h3 a{
+    text-decoration: none;
+    color: #f1f2f6;
+    padding: 2em;
+    font-family: Oswald ;
+}
+
+h3 a:hover{
+    color:#6CB0E4;
+}
+
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+.searchTerm {
+    width: 100%;
+    border-right: none;
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+  }
+
+
+  .searchmov:focus{
+    color: #00B4CC;
+  }
+  
+  .searchButton {
+    width: 40px;
+    height: 30px;
+    border: 1px solid #121211;
+    background: #121211;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  .wrap{
+    width: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 2em;
+  }
+

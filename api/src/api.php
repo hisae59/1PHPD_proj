@@ -88,6 +88,18 @@ class ApiRouter {
                                 break;
                         }
                         break;
+            case 'film_categ':
+                        $controller= new CategoriesController();
+                        switch ($requestMethod){
+                            case 'GET':
+                                $category=
+                                $controller->getMoviesByCategory($category);
+                                break;
+                            default:
+                                http_response_code(405);
+                                echo json_encode(["message"=>"Method not allowed"]);
+                                break;
+                        }
             
 
             default:

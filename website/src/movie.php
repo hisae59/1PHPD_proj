@@ -28,7 +28,17 @@
                 echo "<div class='movie'>";
                 
                 echo "<div id='affiche'><div id='title'><h1>{$movie_data['title']}</h1>";
-                echo "Directed by {$movie_data['director_fname']} {$movie_data['director_lname']}</div>";
+                echo "Directed by {$movie_data['director_fname']} {$movie_data['director_lname']}<br>";
+                echo "Actors: ";
+
+                    $actors_full_names = [];
+                    foreach ($movie_data['actors'] as $actor) {
+                        $actors_full_names[] = $actor['fname'] . " " . $actor['lname'];
+                    }
+
+                    echo implode(", ", $actors_full_names);
+                    echo "<br>";
+                echo "Category: " . implode(", ", $movie_data['categories']), "</div>";
                 echo "<img src='./img/{$movie_data['image']}.jpg' width='30%'></div>";
                 
                 echo "<div id='synopsis'><h3>Synopsis:</h3><p>{$movie_data['synopsis']}</p>";

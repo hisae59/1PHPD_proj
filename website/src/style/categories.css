@@ -22,3 +22,8 @@ h1 a:hover{
     justify-content: space-evenly;
     
 }
+
+body{
+    color:#f1f2f6;
+    font-family: Oswald; 
+}

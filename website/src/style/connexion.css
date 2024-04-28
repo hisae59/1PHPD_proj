@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*blanc : #f2f2f2 et gris clair : #cccccc (fond légérement plus foncé que le fond du formulaire*/
+
+/*color : #232425
+color : #4B4C4E
+*/
+body{
+    margin:0;
+    background:#121211
+}
+
+h1{
+    text-align: center;
+    font-family: 'Poppins';
+    font-weight: 600;
+    color:white;
+}
+h2{
+    text-align: center;
+    font-family: 'Poppins';
+    font-weight: 600;
+    color:white;
+}
+#formulaire{
+    font-family: 'Poppins';
+    font-weight: 600;
+    display:flex;
+    justify-content: center;
+    margin-bottom: 6em;
+}
+
+form{
+    
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+    padding:2%;
+    width:40%;
+    background:#212121;
+    border-top:5px solid #6CB0E4;
+    box-sizing:border-box;
+    
+    
+}
+
+#mail_content{
+    margin:2%;
+}
+
+#mail_content label{
+    margin:4%;
+    color:white;
+}
+
+#mail_content input{
+    margin:3%;
+    width:240px;
+    height:25px;
+    border:1px solid #232425;
+}
+
+#mdp_content{
+    margin:2%;
+}
+
+#mdp_content label{
+    margin:4%;
+    color:white;
+}
+
+#mdp_content input{
+    margin:3%;
+    width:240px;
+    height:25px;
+    border:1px solid #232425;
+}
+
+#button_content{
+    margin:5%;
+    width:150px;
+    height:30px;
+    border:none;
+    background-color:#6CB0E4;
+    color:white;
+    font-family:"Poppins";
+    font-weight:600;
+    
+}
+
+#formulaire a{
+    color:white;
+}
+
+#compte{
+    display:flex;
+    flex-direction:column;
+    
+    padding:1.2%;
+}
+
+
+#compte p{
+    color:#6CB0E4;
+    font-family: 'Poppins';
+}
+
+#compte h3{
+    color:white;
+    font-family: 'Poppins';
+    
+}
+
+#compte h2{
+    text-align:left;
+    text-decoration:underline;
+}
+
+#names{
+    
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: flex-start;
+    padding-left:1.3%;
+}
+
+#names h3{
+    margin-right:30px;
+}
+
+#email{
+
+    padding-left:1.3%;
+}
+
+
+#welcome{
+    text-align:center;
+}
+
+#button_deco{
+    width:30%;
+}

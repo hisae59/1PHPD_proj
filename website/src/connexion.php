@@ -28,6 +28,7 @@ if (isset($_SESSION['user'])) {
 </head>
 
 <body>
+    <?php require "basicheader.php";?>
     <h1>Compte</h1>
     <?php if (!$hide_form) : ?>
         <h2>Connexion</h2>

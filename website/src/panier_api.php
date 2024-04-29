@@ -1,44 +1,93 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') { // Vérifier si la méthode HTTP est GET
-    // Récupérer l'id de l'utilisateur depuis la session ou la requête
-    $id_user = $_SESSION['user']['id_user'] ?? null; // Adapté selon la structure de votre session
+if ($_SERVER['REQUEST_METHOD'] == 'GET') { 
     
-    // Vérifier si l'id de l'utilisateur est disponible
+    $id_user = $_SESSION['user']['id_user'] ?? null; 
+  
     if ($id_user) {
-        // Appeler l'API pour récupérer les films du panier de l'utilisateur
-        $curl = curl_init("http://php-api/cart?id_user=$id_user"); // URL de l'API
+        
+        $curl = curl_init("http://php-api/cart?id_user=$id_user"); 
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($curl);
         curl_close($curl);
 
-        // Vérifier si la réponse de l'API est valide
         if ($response) {
-            // Afficher les films du panier de l'utilisateur
-            echo $response;
             $movies = json_decode($response, true);
-    
-            // Vérifier si la conversion JSON a réussi
+            $total_price = 0;
+            
             if ($movies !== null) {
-            // Parcourir chaque film et afficher son titre
+            
                 foreach ($movies as $movie) {
-                    echo $movie['title'] . "<br>";
-                }
+                    ?>
+                    <div class="movie">
+                    <img src="<?php echo './img/'.$movie['image'].'.jpg'; ?>" alt="<?php echo $movie['title']; ?>">
+                        <h2><?php echo $movie['title']; ?></h2>
+                        <p>Prix : <?php echo $movie['price']; ?> €</p>
+                        <form action="panier_api.php" method="POST">
+                            <input type="hidden" name="id_cart" value="<?php echo $movie['id']; ?>">
+                            <button type="submit" name="delete_movie">🗑️Supprimer</button>
+                        </form>
+                    </div>
+                    <?php
+                    $total_price += $movie['price'];
+            }
+            ?>
+            <div class="total">
+                <h3>Total du panier : <?php echo $total_price; ?> €</h3>
+            </div>
+            <?php
             
             } else {
-                // Gérer les erreurs de conversion JSON
                 echo "Erreur lors de la conversion de la réponse JSON.";
             }
         } else {
-            // Gérer les erreurs de récupération du panier
             echo json_encode(["message" => "Erreur lors de la récupération du panier."]);
         }
     } else {
-        // Gérer l'absence d'id utilisateur
         echo json_encode(["message" => "ID utilisateur non disponible."]);
     }
-} else {
-    // Gérer les requêtes non autorisées
+
+} else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addmovie'])) { 
+    $id_user = $_SESSION['user']['id_user'] ?? null; 
+    $id_movie = $_POST['id_movie'] ?? null;
+    
+    
+    if ($id_user && $id_movie) {
+        $postData = json_encode(array('id_user' => $id_user, 'id_movie' => $id_movie));
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, "http://php-api/cart?id_user=$id_user&id_movie=$id_movie");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        $response = curl_exec($curl);
+        curl_close($curl);
+        echo '<script>window.location.href = "panier.php";</script>';
+        exit;
+        
+    } else {
+        echo "Missing user ID or movie ID";
+    }
+} else if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_movie'])) {
+    
+    $id_cart = $_POST['id_cart'] ?? '';
+    
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, "http://php-api/cart?id_cart=$id_cart");
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($curl);
+    $http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    curl_close($curl);
+    echo '<script>window.location.href = "panier.php";</script>';
+    exit;
+    
+    
+}
+
+else {
     http_response_code(405);
     echo json_encode(["message" => "Méthode non autorisée."]);
 }
+

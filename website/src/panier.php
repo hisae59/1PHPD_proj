@@ -15,6 +15,7 @@ if (isset($_SESSION['user'])) {
     // Utilisateur non connecté, afficher un message invitant à se connecter
     $panier_message = "Vous devez vous connecter pour accéder à votre panier !";
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -22,33 +23,30 @@ if (isset($_SESSION['user'])) {
 
 <head>
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="styles/panier.css">
     <title>Panier</title>
 </head>
 
 <body>
+    <?php require "basicheader.php";?>
+    
     <h1>Panier</h1>
-    <?php echo $panier_message; ?>
-    <?php
-    // Vérifier si le panier existe dans la session
-    require_once 'panier_api.php';
-    if (isset($_SESSION['user']['cart'])) {
-        // Parcourir les films du panier
-        foreach ($_SESSION['user']['cart'] as $movie) {
-            
-            ?>
-            
-            <div class="movie">
-                <h2><?php echo $movie['title']; ?></h2>
-                <img src="<?php echo $movie['image']; ?>" alt="<?php echo $movie['title']; ?>">
-                <p>Prix : <?php echo $movie['price']; ?> €</p>
-                <!-- Ajoutez d'autres informations sur le film ici -->
-            </div>
-            <?php
+    <h3><?php echo $panier_message; ?></h3>
+    <div id="cart_movie">
+        <?php
+        // Vérifier si le panier existe dans la session
+        if (isset($_SESSION['user'])){
+            if (isset($_SESSION['user']['cart'])) {
+                require_once 'panier_api.php';
+            }else{
+                echo "Votre panier est vide.";
+            }
         }
-    }else{
-        echo "Votre panier est vide.";
-    }
-    ?>
-</body>
+        
+        ?>
 
+    </div>
+    
+</body>
 </html>
+

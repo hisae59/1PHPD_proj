@@ -12,7 +12,7 @@ class CartController {
     public function getCart($id_user) {
         
         try {
-            $stmt = $this->conn->prepare("SELECT movie.title, movie.image, movie.price FROM cart JOIN movie ON cart.id_movie = movie.id_movie WHERE cart.id_user = :id_user");
+            $stmt = $this->conn->prepare("SELECT  cart.id, movie.title, movie.image, movie.price FROM cart JOIN movie ON cart.id_movie = movie.id_movie WHERE cart.id_user = :id_user");
             $stmt->bindParam(":id_user", $id_user, PDO::PARAM_INT);
             $stmt->execute();
             
@@ -28,15 +28,26 @@ class CartController {
 
     public function addToCart($id_user, $id_movie) {
         try {
-            $stmt = $this->conn->prepare("INSERT INTO cart (id_user, id_movie) VALUES (:id_user, :id_movie)");
-            $stmt->bindParam(":id_user", $id_user);
-            $stmt->bindParam(":id_movie", $id_movie);
-            if ($stmt->execute()) {
-                http_response_code(200);
-                echo json_encode(["message" => "Movie added to cart."]);
+            $stmt_check = $this->conn->prepare("SELECT id FROM cart WHERE id_user = :id_user AND id_movie = :id_movie");
+            $stmt_check->bindParam(":id_user", $id_user);
+            $stmt_check->bindParam(":id_movie", $id_movie);
+            $stmt_check->execute();
+            $existing_cart_item = $stmt_check->fetch(PDO::FETCH_ASSOC);
+    
+            if ($existing_cart_item) {
+                http_response_code(400);
+                echo json_encode(["message" => "The movie is already in the cart."]);
             } else {
-                http_response_code(500);
-                echo json_encode(["message" => "Failed to add movie to cart."]);
+                $stmt_insert = $this->conn->prepare("INSERT INTO cart (id_user, id_movie) VALUES (:id_user, :id_movie)");
+                $stmt_insert->bindParam(":id_user", $id_user);
+                $stmt_insert->bindParam(":id_movie", $id_movie);
+                if ($stmt_insert->execute()) {
+                    http_response_code(200);
+                    echo json_encode(["message" => "Movie added to cart."]);
+                } else {
+                    http_response_code(500);
+                    echo json_encode(["message" => "Failed to add movie to cart."]);
+                }
             }
         } catch (PDOException $e) {
             http_response_code(500);
@@ -46,7 +57,7 @@ class CartController {
 
     public function removeFromCart($id_cart) {
         try {
-            $stmt = $this->conn->prepare("DELETE FROM cart WHERE id = :id_cart");
+            $stmt = $this->conn->prepare("DELETE FROM cart WHERE cart.id = :id_cart");
             $stmt->bindParam(":id_cart", $id_cart);
             if ($stmt->execute()) {
                 http_response_code(200);

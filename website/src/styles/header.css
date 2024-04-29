@@ -92,23 +92,34 @@ span{
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    align-items: flex-end;
+    
   }
 
+  
 .searchTerm {
     width: 100%;
     border-right: none;
     padding: 5px;
     border-radius: 5px 0 0 5px;
     outline: none;
+    
   }
 
-
+  .searchmov{
+    padding:6px;
+    height:15px;
+  }
+ 
   .searchmov:focus{
     color: #00B4CC;
+    
   }
   
   .searchButton {
+     
+    position: absolute;
     width: 40px;
     height: 30px;
     border: 1px solid #121211;
@@ -118,12 +129,18 @@ span{
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     font-size: 20px;
+    
+    
+   
   }
+
+ 
+  
 
   .wrap{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     margin-top: 2em;
-    margin-left:7%;
+    margin-left:6%;
   }

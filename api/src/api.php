@@ -3,6 +3,7 @@
 require_once 'users.php';
 require_once 'cart.php';
 require_once 'movie.php';
+require_once 'search.php';
 
 class ApiRouter {
     public function processRequest() {
@@ -57,16 +58,12 @@ class ApiRouter {
                                 $controller->getCart($id_user);
                                 break;
                             case 'POST':
-                                // Récupérer les données de la requête
-                                $data = json_decode(file_get_contents('php://input'), true);
-                                $id_user = $data['id_user'] ?? '';
-                                $id_movie = $data['id_movie'] ?? '';
+                                $id_user = $_GET['id_user'] ;  
+                                $id_movie = $_GET['id_movie'] ?? null;  
                                 $controller->addToCart($id_user, $id_movie);
                                 break;
                             case 'DELETE':
-                                // Récupérer l'id du film à supprimer du panier depuis la requête
-                                parse_str(file_get_contents('php://input'), $deleteParams);
-                                $id_cart = $deleteParams['id_cart'] ?? '';
+                                $id_cart = $_GET['id_cart'];
                                 $controller->removeFromCart($id_cart);
                                 break;
                             default:
@@ -88,6 +85,19 @@ class ApiRouter {
                                 break;
                         }
                         break;
+            case 'search':
+                    $controller = new SearchController();
+                    switch ($requestMethod) {
+                        case 'GET':
+                            $query=$_GET['query'];
+                            $controller->searchMovies($query);
+                            break;
+                        default:
+                            http_response_code(405);
+                            echo json_encode(["message" => "Method not allowed"]);
+                            break;
+                    }
+            break;
             
 
             default:

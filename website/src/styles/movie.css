@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+
+body{
+    font-family: Oswald;
+    color: #f1f2f6;
+}
+
+.movie{
+    display: flex;
+    flex-direction: row;
+    margin:2%;
+    flex-wrap:wrap;
+}
+
+#affiche{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:50%;
+    
+}
+
+#affiche img{
+    width:50%;
+}
+
+#title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2em;
+    
+}
+
+#synopsis{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:50%;
+    
+}
+
+#cartbtn{
+    width:30%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+#cart{
+    padding:1em;
+    border-style: none;
+    background-color: #467599;
+    color:#f1f2f6;
+    border-radius: 10px; 
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#cart:hover{
+    background-color: #1d3557;
+}
+
+svg{
+    padding-left: 0.2em;
+}

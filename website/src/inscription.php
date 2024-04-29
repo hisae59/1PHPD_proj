@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <?php require_once 'basicheader.php' ?>
    <h1>Inscription</h1>
 
 
@@ -33,7 +34,7 @@
 
         <input id="button_content" type="submit" value="Envoyer">
         
-    </form>
+    </form> 
 
    </div>
 

@@ -48,6 +48,10 @@ h3 a:hover{
     outline: none;
   }
 
+  .searchmov{
+    padding:6px;
+    height:15px;
+  }
 
   .searchmov:focus{
     color: #00B4CC;
@@ -66,10 +70,11 @@ h3 a:hover{
   }
 
   .wrap{
-    width: 30%;
+    
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     margin-top: 2em;
+    margin-left:7%;
   }
 

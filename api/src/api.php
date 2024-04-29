@@ -3,6 +3,7 @@
 require_once 'users.php';
 require_once 'cart.php';
 require_once 'movie.php';
+require_once 'categories.php';
 
 class ApiRouter {
     public function processRequest() {
@@ -88,12 +89,11 @@ class ApiRouter {
                                 break;
                         }
                         break;
-            case 'film_categ':
-                        $controller= new CategoriesController();
+            case 'categories':
+                        $controller= new CategoryController();
                         switch ($requestMethod){
                             case 'GET':
-                                $category=
-                                $controller->getMoviesByCategory($category);
+                                $controller->getMoviesByCategory();
                                 break;
                             default:
                                 http_response_code(405);

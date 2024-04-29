@@ -29,9 +29,9 @@ if (isset($_SESSION['user'])) {
 
 <body>
     <?php require "basicheader.php";?>
-    <h1>Your Account</h1>
+    <h1>Compte</h1>
     <?php if (!$hide_form) : ?>
-        <h2>Log in</h2>
+        <h2>Connexion</h2>
         <div id="formulaire">
             <form action="connexion_api.php" method="post">
                 <div id="mail_content">
@@ -39,12 +39,12 @@ if (isset($_SESSION['user'])) {
                     <input type="text" id ="mail" name="mail" placeholder='Mail'required><br>
                 </div>
                 <div id="mdp_content">
-                    <label id="mdp_plh">Password</label><br>
-                    <input type="text" id="mdp" name="mdp" placeholder='Password' required><br>
+                    <label id="mdp_plh">Mot de passe</label><br>
+                    <input type="text" id="mdp" name="mdp" placeholder='Mot de passe' required><br>
                 </div>
 
-                <input id="button_content" type="submit" value="Send">
-                <a href="inscription.php"><p>You don't have an account ? Sign up !</p></a>
+                <input id="button_content" type="submit" value="Envoyer">
+                <a href="inscription.php"><p>Vous n'avez pas de compte ? Inscrivez-vous !</p></a>
             </form>
         </div>
     <?php endif; ?>

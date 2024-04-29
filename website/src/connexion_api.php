@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         $_SESSION['user'] = $response['user'];
         
-        // Rediriger vers index.php
+        
         header('Location: connexion.php');
         exit;
     

@@ -116,3 +116,23 @@ h1{
     font-weight:600;
     
 }
+
+@media screen and (max-width: 768px){
+    #formulaire form{
+        width:90%;
+    }
+
+    #formulaire a{
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1024px)and (min-width:769px){
+    #formulaire form{
+        width:80%;
+    }
+
+    #formulaire a{
+        text-align: center;
+    }
+}

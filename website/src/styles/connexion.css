@@ -141,3 +141,14 @@ h2{
 #button_deco{
     width:30%;
 }
+
+
+@media screen and (max-width: 768px){
+    #formulaire form{
+        width:90%;
+    }
+
+    #formulaire a{
+        text-align: center;
+    }
+}

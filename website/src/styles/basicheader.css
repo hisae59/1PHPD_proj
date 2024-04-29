@@ -37,7 +37,8 @@ h3 a:hover{
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    align-items: flex-end;
+    justify-content: flex-start;
   }
 
 .searchTerm {
@@ -58,6 +59,7 @@ h3 a:hover{
   }
   
   .searchButton {
+    position: absolute;
     width: 40px;
     height: 30px;
     border: 1px solid #121211;
@@ -78,3 +80,181 @@ h3 a:hover{
     margin-left:7%;
   }
 
+  #menu-toggle{
+    display:none;
+   }
+
+  @media screen and (max-width: 768px) {
+    nav{
+     display:none;
+    }
+    #menu-toggle{
+     display:block;
+     width:100%;
+     display:flex;
+     flex-direction:column;
+     justify-content: center;
+     align-items: center;
+     background-color: #121211;
+     z-index:2;
+     
+    }
+ 
+    #spans{
+     display:flex;
+     flex-direction: row;
+     align-items:center;
+     width:100%;
+     
+    }
+ 
+    #spans3{
+     width:43%;
+     padding:2%;
+     
+    }
+ 
+    #spans3 span{
+     display: flex;
+     flex-direction: column;
+     width: 25px; 
+     height: 3px; 
+     background-color: #fff;
+     margin-bottom: 5px; 
+     margin:2%;
+ 
+     
+     
+    }
+    #menu-toggle ul{
+     list-style: none;
+     display:none;
+     flex-direction: column;
+     justify-content: center;
+     padding:0;
+     margin:0;
+     
+    }
+ 
+    
+ 
+    #menu-toggle li{
+     list-style: none;
+     padding:0;
+     display:flex;
+     justify-content: center;
+     
+     
+    }
+ 
+ 
+    #js-menu{
+     display:none;
+    }
+ 
+    #js-menu a{
+     color:white;
+    }
+ 
+    #mvpage{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     width:100%;
+     padding-top:70px;
+     z-index:1;
+     
+ 
+     }
+ 
+     #mvpage img{
+         width:70%;
+     }
+    
+ }
+
+ @media screen and (max-width: 1024px) and (min-width:769px) {
+  nav{
+   
+   display:none;
+  }
+  #menu-toggle{
+   display:block;
+   width:100%;
+   display:flex;
+   flex-direction:column;
+   justify-content: center;
+   align-items: center;
+   background-color: #121211;
+   z-index:2;
+   
+  }
+
+  #spans{
+   display:flex;
+   flex-direction: row;
+   align-items:center;
+   width:100%;
+  }
+
+  #spans3{
+   width:43%;
+   padding:2%;
+  }
+
+  #spans3 span{
+   display: flex;
+   flex-direction: column;
+   width: 25px; 
+   height: 3px; 
+   background-color: #fff;
+   margin-bottom: 5px; 
+   margin:2%;
+
+   
+   
+  }
+  #menu-toggle ul{
+   list-style: none;
+   display:none;
+   flex-direction: column;
+   justify-content: center;
+   padding:0;
+   margin:0;
+   
+  }
+
+  
+
+  #menu-toggle li{
+   list-style: none;
+   padding:0;
+   display:flex;
+   justify-content: center;
+   
+   
+  }
+
+
+  #js-menu{
+   display:none;
+  }
+
+  #js-menu a{
+   color:white;
+  }
+
+  #mvpage{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width:100%;
+   z-index:2; 
+   padding-top:45px;
+   }
+
+   #mvpage img{
+       width:40%;
+   }
+  
+}

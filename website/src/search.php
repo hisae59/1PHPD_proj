@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <link rel="stylesheet" type="text/css" href="styles/search.css">
     <title>Homepage</title>
 
 </head>
@@ -15,8 +15,10 @@
     <?php require_once 'basicheader.php'?>
     
     
+    <div class="listmov">
+        <?php require_once 'search_api.php' ?>
+    </div>
     
-    <?php require_once 'search_api.php' ?>
 
 
     

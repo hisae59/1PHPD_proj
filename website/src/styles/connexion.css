@@ -142,10 +142,19 @@ h2{
     width:30%;
 }
 
-#Erreur{
-    color:#c1121f;
-    text-align:center;
+#button_deco button{
+    background-color: #6CB0E4;
+    color:white;
     font-family:Poppins;
+    border:none;
+    padding:2%;
+    border-radius:7px;
+}
+
+#button_deco button:hover{
+    background-color: #1d3557;
+    cursor:pointer;
+    
     
 }
 

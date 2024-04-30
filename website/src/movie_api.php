@@ -19,7 +19,7 @@
                 echo "<div class='movie'>";
                 
                 echo "<div id='affiche'><div id='title'><h1>{$movie_data['title']}</h1>";
-                echo "<h4>Directed by {$movie_data['director_fname']} {$movie_data['director_lname']}</h4>";
+                echo "<a href='search.php?query={$movie_data['director_fname']}+{$movie_data['director_lname']}'><h4>Directed by {$movie_data['director_fname']} {$movie_data['director_lname']}</h4></a>";
                 echo "<h4>Actors : {$movie_data['actors']}</h4></div>";
                 echo "<img src='./img/{$movie_data['image']}.jpg' width='30%'></div>";
                 

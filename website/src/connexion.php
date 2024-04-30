@@ -13,6 +13,7 @@ if (isset($_SESSION['user'])) {
     $welcome_message = "Bienvenue {$fname} ! Vous êtes connecté(e).";
     $hide_form = true;
 }else{
+    
     $hide_form = false;
 }
 ?>
@@ -30,6 +31,10 @@ if (isset($_SESSION['user'])) {
 <body>
     <?php require "basicheader.php";?>
     <h1>Compte</h1>
+    <?php require_once 'connexion_api.php' ?>
+    <?php if (isset($error_message)) : ?>
+        <p id="Erreur"><?php echo $error_message ?></p>
+    <?php endif; ?>
     <?php if (!$hide_form) : ?>
         <h2>Connexion</h2>
         <div id="formulaire">
@@ -48,9 +53,8 @@ if (isset($_SESSION['user'])) {
             </form>
         </div>
     <?php endif; ?>
-    <?php if (isset($error_message)) : ?>
-        <p><?= htmlspecialchars($error_message) ?></p>
-    <?php endif; ?>
+    
+    
     <?php if (isset($welcome_message)) : ?>
         <div id="compte">
             <p id="welcome"><?php echo $welcome_message; ?></p> 
@@ -65,5 +69,6 @@ if (isset($_SESSION['user'])) {
         </div>
         
     <?php endif; ?>
+
 </body>
 </html>

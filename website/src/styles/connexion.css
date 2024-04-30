@@ -142,6 +142,12 @@ h2{
     width:30%;
 }
 
+#Erreur{
+    color:#c1121f;
+    text-align:center;
+    font-family:Poppins;
+    
+}
 
 @media screen and (max-width: 768px){
     #formulaire form{

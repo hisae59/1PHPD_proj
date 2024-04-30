@@ -71,4 +71,34 @@ class CartController {
             echo json_encode(["message" => "Database error: " . $e->getMessage()]);
         }
     }
+
+    public function clearCart($id_user) {
+        try {
+            // Vérifier d'abord si le panier de l'utilisateur n'est pas déjà vide
+            $stmt_check = $this->conn->prepare("SELECT COUNT(*) AS count FROM cart WHERE id_user = :id_user");
+            $stmt_check->bindParam(":id_user", $id_user);
+            $stmt_check->execute();
+            $cart_count = $stmt_check->fetchColumn();
+    
+            if ($cart_count === 0) {
+                http_response_code(400);
+                echo json_encode(["message" => "The cart is already empty."]);
+                return;
+            }
+    
+            // Si le panier n'est pas vide, alors procéder à sa suppression
+            $stmt_delete = $this->conn->prepare("DELETE FROM cart WHERE id_user = :id_user");
+            $stmt_delete->bindParam(":id_user", $id_user);
+            if ($stmt_delete->execute()) {
+                http_response_code(200);
+                echo json_encode(["message" => "Cart successfully emptied."]);
+            } else {
+                http_response_code(500);
+                echo json_encode(["message" => "Failed to delete cart."]);
+            }
+        } catch (PDOException $e) {
+            http_response_code(500);
+            echo json_encode(["message" => "Database Error : " . $e->getMessage()]);
+        }
+    }
 }

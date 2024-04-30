@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             
             echo "<h2>{$movie_data['title']}</h2>";
             echo "<img src='./img/{$movie_data['image']}.jpg' width='300px' height='400px'>";
-            
+            echo "<h2>{$movie_data['price']}€</h2>";
             echo "<div id='learnmore'>";
             echo "<button type='button'>";
             echo "<a href='movie.php?id={$movie_data['id_movie']}'><svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' fill='currentColor' class='bi bi-film' viewBox='0 0 16 16'>";

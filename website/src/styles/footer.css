@@ -19,10 +19,10 @@ span{
     flex-direction: row;
 }
 
-span h3{
-    padding: 0.2em;
-}
 
+#foot a{
+    padding:0;
+}
 #contact{
     display: flex;
     flex-direction: column;

@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+h1 a{
+    text-decoration: none;
+    color:#f1f2f6;
+    font-family: Oswald;
+    width: 100%;
+    font-size: 1.6em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+
+h1 a:hover{
+    color:#6CB0E4;
+}
+
+#categ{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+
+#categorie{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+body{
+    color:#f1f2f6;
+    font-family: Oswald; 
+}
+
+button{
+    background-color: #467599;
+    border-style: none;
+    border-radius: 10px; 
+    padding:1em;
+    display:flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    margin: 1em;
+}
+
+button a{
+    text-decoration: none;
+    color:#f1f2f6;
+    font-family: Oswald;
+    width: 100%;
+    font-size: 1.6em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+
+button:hover{
+    background-color: #1d3557;
+}
+
+#results{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.movie{
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+@media screen and (max-width:768px) {
+    #results{
+        display:flex;
+        flex-direction: column;
+    }
+}

@@ -20,15 +20,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Démarrer la session et stocker les informations de l'utilisateur
         
         $_SESSION['user'] = $response['user'];
-        
-        
         header('Location: connexion.php');
         exit;
     
-    } else {
+    }   
+    
+    else {
         // Gérer l'échec de la connexion
         $error_message = $response['message'] ?? 'Erreur de connexion';
-        echo $error_message; // Envoyer le contenu après toute gestion des en-têtes
+        header('Location: connexion.php');
+        exit;
     }
 }
 

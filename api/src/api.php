@@ -4,6 +4,8 @@ require_once 'users.php';
 require_once 'cart.php';
 require_once 'movie.php';
 require_once 'search.php';
+require_once 'categories.php';
+
 
 class ApiRouter {
     public function processRequest() {
@@ -63,9 +65,16 @@ class ApiRouter {
                                 $controller->addToCart($id_user, $id_movie);
                                 break;
                             case 'DELETE':
-                                $id_cart = $_GET['id_cart'];
-                                $controller->removeFromCart($id_cart);
-                                break;
+                                if (isset($_GET['id_cart'])) {
+                                    $id_cart = $_GET['id_cart'];
+                                    $controller->removeFromCart($id_cart);
+                                } elseif (isset($_GET['clear_cart'])) {
+                                    $id_user = $_GET['id_user'] ?? null;
+                                    $controller->clearCart($id_user);
+                                } else {
+                                    http_response_code(400);
+                                    echo json_encode(["message" => "Paramètre invalide pour supprimer le panier."]);
+                                }break;
                             default:
                                 http_response_code(405);
                                 echo json_encode(["message" => "Method not allowed"]);
@@ -97,6 +106,18 @@ class ApiRouter {
                             echo json_encode(["message" => "Method not allowed"]);
                             break;
                     }
+            break;
+            case 'categories':
+                $controller= new CategoryController();
+                switch ($requestMethod){
+                    case 'GET':
+                        $controller->getMoviesByCategory();
+                        break;
+                    default:
+                        http_response_code(405);
+                        echo json_encode(["message"=>"Method not allowed"]);
+                        break;
+                }
             break;
             
 

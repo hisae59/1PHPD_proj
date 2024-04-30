@@ -35,6 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             <div class="total">
                 <h3>Total du panier : <?php echo $total_price; ?> €</h3>
             </div>
+            <div class="empty">
+                <form action="panier_api.php" method="POST">
+                    <button type="submit" name="clear_cart">Vider le panier</button>
+                </form>
+
+            </div>
             <?php
             
             } else {
@@ -84,6 +90,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     exit;
     
     
+} else if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['clear_cart'])) {
+    $id_user = $_SESSION['user']['id_user'] ?? null;
+    
+    if ($id_user) {
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, "http://php-api/cart?clear_cart=true&id_user=$id_user");
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($curl);
+        $http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        curl_close($curl);
+        
+        if ($http_status === 200) {
+            echo '<script>alert("Panier vidé avec succès."); window.location.href = "panier.php";</script>';
+            exit;
+        } else if ($http_status === 400){
+            echo '<script>alert("Le panier est vide."); window.location.href = "panier.php";</script>';
+            exit;
+        }
+        
+        else {
+            echo '<script>alert("Erreur lors de la suppression du panier."); window.location.href = "panier.php";</script>';
+            exit;
+        }
+    } else {
+        echo '<script>alert("ID utilisateur non disponible."); window.location.href = "panier.php";</script>';
+        exit;
+    }
 }
 
 else {

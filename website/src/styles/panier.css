@@ -28,8 +28,9 @@ h3{
     border:2px solid #6CB0E4;
     align-items:center;
     justify-content: space-between;
-    width:57%;
+    width:60%;
     border-radius:7px;
+    padding-right:2%;
 }
 
 .movie img{
@@ -53,14 +54,57 @@ h3{
 .movie button{
     font-family:Poppins;
     text-decoration:bold;
-    margin-right:2%;
-    padding:1%;
+    padding:5%;
+    margin-right:10%;
     background-color: #6CB0E4;
     border-radius:7px;
     color:white;
     border:none;
+    width:110%;
 }
 
 .total{
 font-family:Poppins;
+}
+
+.empty button{
+    background-color: #6CB0E4;
+    color:white;
+    font-family:Poppins;
+    border:none;
+    padding:5%;
+    border-radius:7px;
+    width:120%;
+    margin-bottom:100%;
+}
+
+.empty button:hover{
+    cursor:pointer;
+    background-color: #1d3557;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .movie{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding:5%;
+    }
+
+    .movie button{
+        font-family:Poppins;
+        text-decoration:bold;
+        padding:5%;
+        background-color: #6CB0E4;
+        border-radius:7px;
+        color:white;
+        border:none;
+        width:110%;
+    }
+
 }

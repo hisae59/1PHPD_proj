@@ -13,5 +13,6 @@
         <h1><a href="action.php">Action</a></h1>
         <h1><a href="drama.php">Drama</a></h1>
     </div>
+    <h2 id="categorie">Choose a Category</h2>
 </body>
 </html>

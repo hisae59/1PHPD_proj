@@ -5,12 +5,12 @@ lname VARCHAR(50)
 );
 
 CREATE TABLE movie(
-id INT PRIMARY KEY AUTO_INCREMENT,
+id_movie INT PRIMARY KEY AUTO_INCREMENT,
 title VARCHAR(70),
-synopsis VARCHAR(100),
+synopsis VARCHAR(1000),
 price INT,
-image BLOB,
-video BLOB,
+image VARCHAR(100),
+video VARCHAR(500),
 director_id INT,
 FOREIGN KEY (director_id) REFERENCES director(id)
 );
@@ -26,7 +26,7 @@ CREATE TABLE film_categ(
 id INT PRIMARY KEY AUTO_INCREMENT,
 id_movie INT,
 id_categ INT,
-FOREIGN KEY (id_movie) REFERENCES movie(id),
+FOREIGN KEY (id_movie) REFERENCES movie(id_movie),
 FOREIGN KEY (id_categ) REFERENCES categories(id)
 );
 
@@ -85,49 +85,168 @@ VALUES (
 "Lussi-Modeste"
 );
 
+INSERT INTO director(fname, lname)
+VALUES (
+"Luca",
+"Guadagnino"
+);
+
+INSERT INTO director(fname, lname)
+VALUES (
+"David",
+"Leitch"
+);
+
+INSERT INTO director(fname, lname)
+VALUES (
+"Mark",
+"Webb"
+);
+
+INSERT INTO director(fname, lname)
+VALUES (
+"Juan Carlos",
+"Fresnadillo"
+);
+
+INSERT INTO director(fname, lname)
+VALUES (
+"Alex",
+"Garland"
+);
+
+
+INSERT INTO director(fname, lname)
+VALUES (
+"Christopher",
+"Nolan"
+);
+
+
+
+
 ---------------------------------MOVIES-------------------------------------------
 
-INSERT INTO movie(title, price, image, video, director_id)
+INSERT INTO movie(title, price,synopsis, image, video, director_id)
 VALUES(
-"Godzilla x Kong : Le Nouvel Empire",
+"Godzilla x Kong : The new Empire",
  12,
-"https://fr.web.img5.acsta.net/pictures/24/02/20/16/25/2308963.jpg",
-"<iframe src='https://player.allocine.fr/19604501.html' style='width:480px; height:270px'>",
+"
+The almighty Kong and the formidable Godzilla join forces against a terrible yet secret threat that could annihilate them and endanger the very survival of the human species. GODZILLA X KONG: THE NEW EMPIRE delves into the origins of the two titans and the mysteries of Skull Island, while revealing the mythic battle that helped shape these extraordinary creatures and bound their fate to that of humanity forever...",
+"gmk2",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/qqrpMRDuPfc?si=j1cl7kvA_n7A5YWX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
  1
 );
 
-INSERT INTO movie(title, price, image, video, director_id)
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
 VALUES(
 "Kung Fu Panda 4",
 13,
-"https://fr.web.img4.acsta.net/c_310_420/pictures/24/02/20/12/28/5505684.jpg",
-"<iframe src='https://player.allocine.fr/19604634.html' style='width:480px; height:270px'>",
+"After triumphing over the forces of evil countless times, Po, the dragon warrior, is on the verge of taking a break when destiny designates him as the spiritual leader of the Valley of Peace. However, he quickly realizes he must train a successor and confront a new threat: Chameleon, a cunning witch eager to unleash the ancient evil masters. With the unlikely help of Zhen, a thieving fox, Po must overcome their differences to protect the valley and discover that heroes can emerge from the least expected places."
+"kfp4",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/-5qyM5TSWuY?si=SkXqW1sX-2Ch0o_9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
 2
 );
 
-INSERT INTO movie(title, price, image, video, director_id)
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
 VALUES(
-"Dune, deuxième partie",
+"Dune, Part 2",
 19,
-"https://fr.web.img4.acsta.net/pictures/24/01/26/10/18/5392835.jpg",
-"<iframe src='https://player.allocine.fr/19604611.html' style='width:480px; height:270px'>",
+"In DUNE: PART TWO, Paul Atreides joins forces with Chani and the Fremen to lead the rebellion against those who destroyed his family. Haunted by dark premonitions, he is faced with the greatest of dilemmas: choosing between the love of his life and the fate of the universe.",
+"dune2",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/oGimpDBwkFc?si=ZpNfoOhKifuorn2M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
 3
 );
 
-INSERT INTO movie(title, price, image, video, director_id)
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
 VALUES(
 "Pas de vagues",
 11,
-"https://fr.web.img5.acsta.net/c_310_420/pictures/24/02/13/10/33/0660848.jpg",
-"<iframe src='https://player.allocine.fr/19605206.html' style='width:480px; height:270px'>",
+"Julien est professeur au collège. Jeune et volontaire, il essaie de créer du lien avec sa classe en prenant sous son aile quelques élèves, dont la timide Leslie.
+
+Ce traitement de faveur est mal perçu par certains camarades qui prêtent au professeur d'autres intentions. Julien est accusé de harcèlement.
+
+La rumeur se propage. Le professeur et son élève se retrouvent pris chacun dans un engrenage.
+
+Mais devant un collège qui risque de s'embraser, un seul mot d'ordre : pas de vagues...",
+"pasdevagues",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/H6Jin0hXT5U?si=IWZH9lFeFw5PljCQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
 4
 );
+
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
+VALUES(
+
+"Challengers",
+23,
+"A tennis player turned coach, Tashi, decides to devote herself to the career of her husband, Art, transforming him from a mediocre player into a world-renowned Grand Slam champion. To get him out of a recent series of defeats, she makes him participate in a "Challenger" tournament where he finds himself facing Patrick, his former best friend and Tashi's ex-boyfriend.",
+"challengers",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/mwo4Sg_0g78?si=_KJo5p-pQ24I6rQ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
+5);
+
+
+
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
+VALUES(
+
+"The Fall Guy",
+21,
+"A stuntman finds himself hired on a film with a star he worked for a long time ago and who replaced him. Soon, the star disappears...",
+"fallguy",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/MvlSLYCGpSA?si=Ma_2rWPyvjbBo7xg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
+6);
+
+
+
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
+VALUES(
+
+"The Amazing Spiderman",
+24,
+"Abandoned by his parents when he was a child, Peter Parker was raised by his uncle Ben and his aunt May. He is now in high school, but he is having trouble integrating. Like most teenagers his age, Peter is trying to understand who he is and accept his journey. First-time lovers, he and Gwen Stacy discover feelings, commitment and secrets. Finding a mysterious briefcase that belonged to his father, Peter begins a quest to elucidate the disappearance of his parents, which quickly leads him to Oscorp and the laboratory of Doctor Curt Connors, his father's former associate. Spider-Man will soon come face to face with the Lizard, Connors' alter ego. By deciding to use his powers, he will choose his destiny...",
+"tasm",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/hFBgB5Gt6T8?si=--uvb0_vzRdiAO9i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
+7);
+
+
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
+VALUES(
+
+"The Damsel and the Dragon",
+13,
+"A docile young woman agrees to marry a handsome prince and realizes that the royal family has chosen to sacrifice her in repayment of an old debt. Thrown into a cave sheltering a fire-breathing dragon, she will only be able to count on her intelligence and courage to survive.",
+"damsdrag",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/iM150ZWovZM?si=l0jXXpyql1hV2RlC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
+8);
+
+
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
+VALUES(
+
+"Civil War",
+15,
+"Set in a near future where the United States is on the brink of collapse and embedded journalists are racing to tell the biggest story of their lives: The end of America as we know it.",
+"civilwar",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/CoXtvSRpHgM?si=yqRV9pKAyscP-enH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
+9);
+
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
+VALUES(
+
+"Oppenheimer",
+25,
+"In 1942, convinced that Nazi Germany was developing a nuclear weapon, the United States initiated, in the greatest secrecy, the "Manhattan Project" intended to develop the first atomic bomb in history. To pilot this device, the government hired J. Robert Oppenheimer, a brilliant physicist, who would soon be nicknamed "the father of the atomic bomb". It is in the ultra-secret Los Alamos laboratory, in the heart of the New Mexico desert, that the scientist and his team developed a revolutionary weapon whose dizzying consequences continue to weigh on today's world...",
+"oppi",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/2P2YQQHaWaU?si=7IwQI_iN35zoniqS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
+10);
+
+
 
 
 --------------------------------Categories----------------------------------------
 
 INSERT INTO categories(name)
-VALUES("Drame");
+VALUES("Drama");
 
 INSERT INTO categories(name)
 VALUES("Action");
@@ -145,6 +264,26 @@ VALUES(1, 2);
 
 INSERT INTO film_categ(id_movie, id_categ)
 VALUES(2, 2);
+
+INSERT INTO film_categ(id_movie, id_categ)
+VALUES(1, 5);
+
+
+INSERT INTO film_categ(id_movie, id_categ)
+VALUES(2, 6);
+
+
+INSERT INTO film_categ(id_movie, id_categ)
+VALUES(2, 7);
+
+INSERT INTO film_categ(id_movie, id_categ)
+VALUES(2, 8);
+
+INSERT INTO film_categ(id_movie, id_categ)
+VALUES(1, 9);
+
+INSERT INTO film_categ(id_movie, id_categ)
+VALUES(1, 10);
 
 
 
@@ -215,14 +354,14 @@ VALUES(
 
 INSERT INTO actor (fname, lname)
 VALUES(
-"Rebecca",
-    "Ferguson"
+"Zendaya",
+    ""
 );
 
 INSERT INTO actor (fname, lname)
 VALUES(
-"Oscar",
-    "Isaac"
+"Austin",
+    "Butler"
 );
 
 INSERT INTO actor (fname, lname)
@@ -242,6 +381,103 @@ VALUES(
 "Bakary",
     "Kebe"
 );
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Mike",
+    "Faist"
+);
+INSERT INTO actor (fname, lname)
+VALUES(
+"Josh",
+    "O'Connor"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Ryan",
+    "Gosling"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Emily",
+    "Blunt"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Aaron",
+    "Taylor-Johnson"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Andrew",
+    "Garfield"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Emma",
+    "Stone"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Rhys",
+    "Ifans"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Millie",
+    "Bobby Brown"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Ray",
+    "Winstone"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Angela",
+    "Basset"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Kirsten",
+    "Dust"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Wagner",
+    "Moura"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Cailee",
+    "Spaeny"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Cillian",
+    "Murphy"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Matt",
+    "Damon"
+);
+
+
 
 ----------------------------------film_actor--------------------------------------
 
@@ -281,33 +517,58 @@ VALUES(4, 11);
 INSERT INTO film_actor(id_film, id_actor)
 VALUES(4, 12);
 
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(5, 8);
 
-------------------------ajout des synopsis----------------------------------------
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(5, 13);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(5, 14);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(6, 15);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(6, 16);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(6, 17);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(7, 18);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(7, 19);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(7, 20);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(8, 21);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(8, 22);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(8, 23);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(9, 24);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(9, 25);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(9, 26);
 
 
-ALTER TABLE movie
-MODIFY COLUMN synopsis VARCHAR(1000);
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(10, 27);
 
-UPDATE movie
-SET synopsis= "Le tout-puissant Kong et le redoutable Godzilla unissent leurs forces contre une terrible menace encore secrète qui risque de les anéantir et qui met en danger la survie même de l’espèce humaine. GODZILLA X KONG : LE NOUVEL EMPIRE remonte à l’origine des deux titans et aux mystères de Skull Island, tout en révélant le combat mythique qui a contribué à façonner ces deux créatures hors du commun et lié leur sort à celui de l’homme pour toujours…"
-WHERE id=1;
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(10, 16);
 
-UPDATE movie
-SET synopsis= "
-Après avoir triomphé des maîtres du mal à maintes reprises, Po, le guerrier dragon, est sur le point de prendre du repos lorsque le destin le désigne comme chef spirituel de la vallée de la Paix. Cependant, il se rend vite compte qu'il doit former un successeur et faire face à une nouvelle menace : Caméléone, une sorcière rusée désireuse de libérer les anciens maîtres maléfiques. Avec l'aide improbable de Zhen, une renarde voleuse, Po devra surmonter ses différences pour protéger la vallée et découvrir que les héros peuvent surgir des endroits les moins attendus."
-WHERE id=2;
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(10, 28);
 
-UPDATE movie
-SET synopsis= "Dans DUNE : DEUXIÈME PARTIE, Paul Atreides s’unit à Chani et aux Fremen pour mener la révolte contre ceux qui ont anéanti sa famille. Hanté par de sombres prémonitions, il se trouve confronté au plus grand des dilemmes : choisir entre l’amour de sa vie et le destin de l’univers."
-WHERE id=3;
-
-
-UPDATE movie
-SET synopsis= "Julien est professeur au collège. Jeune et volontaire, il essaie de créer du lien avec sa classe en prenant sous son aile quelques élèves, dont la timide Leslie.
-
-Ce traitement de faveur est mal perçu par certains camarades qui prêtent au professeur d'autres intentions. Julien est accusé de harcèlement.
-
-La rumeur se propage. Le professeur et son élève se retrouvent pris chacun dans un engrenage.
-
-Mais devant un collège qui risque de s'embraser, un seul mot d'ordre : pas de vagues..."
-WHERE id=4;

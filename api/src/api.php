@@ -4,6 +4,7 @@ require_once 'users.php';
 require_once 'cart.php';
 require_once 'movie.php';
 require_once 'categories.php';
+require_once 'search.php';
 
 class ApiRouter {
     public function processRequest() {
@@ -100,7 +101,21 @@ class ApiRouter {
                                 echo json_encode(["message"=>"Method not allowed"]);
                                 break;
                         }
-            
+                        break;
+
+            case 'search':
+                        $controller = new SearchController();
+                        switch ($requestMethod) {
+                            case 'GET':
+                                $query=$_GET['query'];
+                                $controller->searchMovies($query);
+                                break;
+                            default:
+                                http_response_code(405);
+                                echo json_encode(["message" => "Method not allowed"]);
+                                break;
+                        }
+                        break;
 
             default:
                 http_response_code(404);

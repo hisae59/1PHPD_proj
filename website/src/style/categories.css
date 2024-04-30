@@ -23,7 +23,54 @@ h1 a:hover{
     
 }
 
+#categorie{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
 body{
     color:#f1f2f6;
     font-family: Oswald; 
+}
+
+button{
+    background-color: #467599;
+    border-style: none;
+    border-radius: 10px; 
+    padding:1em;
+    display:flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    margin: 1em;
+}
+
+button a{
+    text-decoration: none;
+    color:#f1f2f6;
+    font-family: Oswald;
+    width: 100%;
+    font-size: 1.6em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+
+button:hover{
+    background-color: #1d3557;
+}
+
+#results{
+    display: flex;
+    flex-direction: row;
+}
+
+.movie{
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

@@ -6,6 +6,7 @@ class CategoryController {
     public function getMoviesByCategory() {
         // Récupérer le nom de la catégorie à partir de la requête GET
         $categoryName = $_GET['category'] ?? null;
+        
         if (!$categoryName) {
             http_response_code(400);
             echo json_encode(["message" => "Category name is missing"]);
@@ -16,7 +17,7 @@ class CategoryController {
         $conn = Database::getInstance();
 
         // Préparer la requête SQL pour récupérer les informations des films ayant la catégorie spécifiée
-        $sql = "SELECT movie.*, director.fname AS director_fname, director.lname AS director_lname
+        $sql = "SELECT movie.id_movie, movie.title, movie.image, movie.price, director.fname AS director_fname, director.lname AS director_lname
                 FROM movie
                 LEFT JOIN director ON movie.director_id = director.id
                 INNER JOIN film_categ ON movie.id_movie = film_categ.id_movie

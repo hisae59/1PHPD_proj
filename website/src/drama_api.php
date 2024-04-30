@@ -3,7 +3,7 @@
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // Tableau des ID de films à récupérer
        
-        $curl = curl_init("http://php-api/categories?category=action");
+        $curl = curl_init("http://php-api/categories?category=drama");
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($curl);
         curl_close($curl);

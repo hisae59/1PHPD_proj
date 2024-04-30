@@ -65,6 +65,5 @@ if (isset($_SESSION['user'])) {
         </div>
         
     <?php endif; ?>
-    <?php require "footer.php";?>
 </body>
 </html>

@@ -19,9 +19,9 @@ class CategoryController {
         // Préparer la requête SQL pour récupérer les informations des films ayant la catégorie spécifiée
         $sql = "SELECT movie.id_movie, movie.title, movie.image, movie.price, director.fname AS director_fname, director.lname AS director_lname
                 FROM movie
-                LEFT JOIN director ON movie.director_id = director.id
+                LEFT JOIN director ON movie.director_id = director.id_director
                 INNER JOIN film_categ ON movie.id_movie = film_categ.id_movie
-                INNER JOIN categories ON film_categ.id_categ = categories.id
+                INNER JOIN categories ON film_categ.id_categ = categories.id_categorie
                 WHERE categories.name = :category";
 
         $stmt = $conn->prepare($sql);

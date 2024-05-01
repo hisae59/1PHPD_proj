@@ -18,7 +18,7 @@ class MovieController {
         // Préparer la requête SQL pour récupérer les informations du film
         $sql = "SELECT movie.*, director.fname AS director_fname, director.lname AS director_lname
                 FROM movie
-                LEFT JOIN director ON movie.director_id = director.id
+                LEFT JOIN director ON movie.director_id = director.id_director
                 WHERE movie.id_movie = :id";
 
         $stmt = $conn->prepare($sql);
@@ -40,7 +40,7 @@ class MovieController {
         // Préparer la requête pour récupérer les catégories du film
         $sqlCategories = "SELECT categories.name
                           FROM categories
-                          INNER JOIN film_categ ON categories.id = film_categ.id_categ
+                          INNER JOIN film_categ ON categories.id_categorie = film_categ.id_categ
                           WHERE film_categ.id_movie = :id";
 
         $stmtCategories = $conn->prepare($sqlCategories);
@@ -56,7 +56,7 @@ class MovieController {
         // Préparer la requête pour récupérer les acteurs du film
         $sqlActors = "SELECT actor.fname, actor.lname
                       FROM actor
-                      INNER JOIN film_actor ON actor.id = film_actor.id_actor
+                      INNER JOIN film_actor ON actor.id_actor = film_actor.id_actor
                       WHERE film_actor.id_film = :id";
 
         $stmtActors = $conn->prepare($sqlActors);

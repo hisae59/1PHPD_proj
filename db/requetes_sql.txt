@@ -57,7 +57,7 @@ CREATE TABLE film_actor(
 id INT PRIMARY KEY AUTO_INCREMENT,
 id_film INT,
 id_actor INT,
-FOREIGN KEY (id_film) REFERENCES movie(id),
+FOREIGN KEY (id_film) REFERENCES movie(id_movie),
 FOREIGN KEY (id_actor) REFERENCES actor(id)
 );
 
@@ -121,6 +121,51 @@ VALUES (
 "Christopher",
 "Nolan"
 );
+
+INSERT INTO director(fname, lname)
+VALUES (
+"Doug",
+"Liman"
+);
+
+INSERT INTO director(fname, lname)
+VALUES (
+"David",
+"Sandberg"
+);
+
+INSERT INTO director(fname, lname)
+VALUES (
+"Michael",
+"Green"
+);
+
+INSERT INTO director(fname, lname)
+VALUES (
+"Damien",
+"Chazelle"
+);
+
+INSERT INTO director(fname, lname)
+VALUES (
+"James",
+"Cameron"
+);
+
+INSERT INTO director(fname, lname)
+VALUES (
+"Frank",
+"E.Flowers"
+);
+
+INSERT INTO director(fname, lname)
+VALUES (
+"Sam",
+"Taylor-Johnson"
+);
+
+
+
 
 
 
@@ -241,6 +286,113 @@ VALUES(
 10);
 
 
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
+VALUES(
+
+"Bullet Train",
+16,
+"Ladybug is a down-on-his-luck assassin who is particularly determined to complete his new mission peacefully after too many have gone off the rails. But destiny has decided otherwise and takes him on the fastest train in the world alongside formidable adversaries who all have one thing in common, but whose interests diverge radically... He must then try by all means to get off the train.",
+"bullettrain",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/8pdEgUm3gHs?si=oaV2HuzB_JMyffbx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
+6);
+
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
+VALUES(
+
+"Mr & Mrs Smith",
+13,
+"Mr. & Mrs. Smith are husband and wife, and hit men both. They work for competing organizations, each unaware of their partner's true profession. In the evening, they are an ordinary couple. The day their respective employers engage them on the same target and they discover themselves adversaries, their domestic scenes become explosive.",
+"smith",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/8a6yfi77hxA?si=gk02mto1ar3Yom2s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
+11);
+
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
+VALUES(
+
+"Shazam!",
+17,
+"We all have a superhero sleeping deep inside... it just takes a little magic to wake him up. For Billy Batson, a resourceful 14-year-old placed in foster care, all it takes is shouting “Shazam!” » to transform into a superhero. A teenager in a perfectly sculpted adult body, Shazam has fun with his brand new superpowers. Is he capable of flying? To see through any type of matter? To make lightning spring from his hands? And skip your social sciences exam? Shazam pushes the limits of his faculties with the recklessness of a child. But he will have to quickly master his powers to fight the forces of darkness of Dr. Thaddeus Sivana...",
+"shazam",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/xDcbQi6za7A?si=cL1CF-BY8p6y5Ebo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
+12);
+
+
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
+VALUES(
+
+"Shazam! Rage of the Gods",
+18,
+"Equipped with the powers of the gods, Billy Batson and his friends are still learning to reconcile their teenage lives with their superhero responsibilities once they transform into adults. But when the Daughters of Atlas, a trio of ancient goddesses drunk on vengeance, arrive on Earth to regain the magic that was stolen from them long ago, Billy, aka Shazam, and his family engage in a battle intended to maintain their superpowers, stay alive and save the planet. But can a group of teenagers really prevent the destruction of the world? And, above all, does Billy even want it...?",
+"shazam2",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/39rH7TNhbuE?si=CCRdjRYNmsOXDGcK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
+12);
+
+
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
+VALUES(
+
+"The Amazing Spider-Man: A Hero's Destiny",
+20,
+"Peter Parker has a very busy life divided between his fight against villains and the person he loves, Gwen. He is therefore impatiently awaiting his high school diploma. Peter has not forgotten the promise he made to Gwen's father: to protect her by staying out of her existence. A promise he cannot keep. Things will change for Peter when a new villain appears, Electro, when an old friend returns, Harry Osborn, and when Peter discovers new clues about his past.",
+"tasm2",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/S1Bc9Dw5EY0?si=oPSco9FvWgv_UAVR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
+7);
+
+
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
+VALUES(
+
+"Blade Runner 2049",
+21,
+"In 2049, society is weakened by the numerous tensions between humans and their slaves created by bioengineering. Officer K is a Blade Runner: part of an elite task force tasked with finding and eliminating those who do not obey human orders. When he discovers a long-buried secret capable of changing the world, the highest authorities decide that it is his turn to be hunted down and eliminated. His only hope is to find Rick Deckard, a former Blade Runner who has been missing for decades...",
+"bladerunner",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/R9WlM3lAJok?si=mKFG6JGM7hAocLFT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
+13);
+
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
+VALUES(
+
+"La La Land",
+23,
+"In the heart of Los Angeles, an aspiring actress named Mia serves coffee between auditions. For his part, Sebastian, passionate about jazz, plays the piano in seedy clubs to earn a living. Both are far from the dream life they aspire to... Destiny will bring these sweet dreamers together, but will their love at first sight resist temptations, disappointments, and the hectic life of Hollywood?",
+"lalaland",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/vOBtJWG_KlI?si=AjyawwRsonw8uUkR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
+14);
+
+
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
+VALUES(
+
+"Titanic",
+24,
+"Southampton, April 10, 1912. The largest and most modern liner in the world, renowned for its unsinkability, the “Titanic”, sets sail for its first voyage. Four days later, it hits an iceberg. On board, a poor artist and a wealthy bourgeois woman fall in love.",
+"titanic",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/Quf4qIkD3KY?si=gN-fOALnmK0UF3b9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
+15);
+
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
+VALUES(
+
+"Bob Marley- One Love",
+26,
+"Celebrate the life and music of an icon who inspired generations with his message of love, peace and unity. In this powerful and inspiring film, discover how Bob Marley overcame adversity and how his revolutionary music changed the world.",
+"bobmarley",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/AsxFSPzxH7k?si=4YJgCDod8c0dCJPA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
+16);
+
+
+INSERT INTO movie(title, price, synopsis, image, video, director_id)
+VALUES(
+
+"Back To Black",
+27,
+"The extraordinary story of Amy Winehouse’s early rise to fame from her early days in Camden through the making of her groundbreaking album, Back to Black that catapulted Winehouse to global fame. Told through Amy’s eyes and inspired by her deeply personal lyrics, the film explores and embraces the many layers of the iconic artist and the tumultuous love story at the center of one of the most legendary albums of all time.",
+"btb",
+"<iframe width="560" height="315" src="https://www.youtube.com/embed/VlW-jEscGgM?si=I4RAf2OfHdj5QWN_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
+17);
+
+
+
 
 
 --------------------------------Categories----------------------------------------
@@ -285,9 +437,35 @@ VALUES(1, 9);
 INSERT INTO film_categ(id_movie, id_categ)
 VALUES(1, 10);
 
+INSERT INTO film_categ(id_movie, id_categ)
+VALUES(2, 11);
 
+INSERT INTO film_categ(id_movie, id_categ)
+VALUES(2, 12);
 
+INSERT INTO film_categ(id_movie, id_categ)
+VALUES(2, 13);
 
+INSERT INTO film_categ(id_movie, id_categ)
+VALUES(2, 14);
+
+INSERT INTO film_categ(id_movie, id_categ)
+VALUES(2, 15);
+
+INSERT INTO film_categ(id_movie, id_categ)
+VALUES(1, 16);
+
+INSERT INTO film_categ(id_movie, id_categ)
+VALUES(1, 17);
+
+INSERT INTO film_categ(id_movie, id_categ)
+VALUES(1, 18);
+
+INSERT INTO film_categ(id_movie, id_categ)
+VALUES(1, 19);
+
+INSERT INTO film_categ(id_movie, id_categ)
+VALUES(1, 20);
 -------------------------------------usersite-------------------------------------
 
 INSERT INTO usersite(fname, lname, pssword, email)
@@ -473,9 +651,131 @@ VALUES(
 
 INSERT INTO actor (fname, lname)
 VALUES(
-"Matt",
-    "Damon"
+"Brad",
+    "Pitt"
 );
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Joey",
+    "King"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Angelina",
+    "Jolie"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Vince",
+    "Vaughn"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Zachary",
+    "Levi"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Mark",
+    "Strong"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Asher",
+    "Angel"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Jack Dylan",
+    "Grazer"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Jamie",
+    "Foxx"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Harrison",
+    "Ford"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Sylvia",
+    "Hoeks"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"John",
+    "Legend"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Leonardo",
+    "DiCaprio"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Kate",
+    "Winslet"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Billy",
+    "Zane"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Kingsley",
+    "Ben-Adir"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Lashana",
+    "Lynch"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"James",
+    "Norton"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Marisa",
+    "Abela"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Jack",
+    "O'Connell"
+);
+
+INSERT INTO actor (fname, lname)
+VALUES(
+"Eddie",
+    "Marsan"
+);
+
+
 
 
 
@@ -571,4 +871,97 @@ VALUES(10, 16);
 
 INSERT INTO film_actor(id_film, id_actor)
 VALUES(10, 28);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(11, 29);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(11, 30);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(11, 17);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(12, 29);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(12, 31);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(12, 32);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(13, 33);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(13, 34);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(13, 35);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(14, 33);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(14, 35);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(14, 36);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(15, 18);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(15, 19);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(15, 37);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(16, 15);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(16, 38);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(16, 39);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(17, 15);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(17, 19);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(17, 40);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(18, 41);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(18, 42);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(18, 43);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(19, 44);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(19, 45);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(19, 46);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(20, 47);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(20, 48);
+
+INSERT INTO film_actor(id_film, id_actor)
+VALUES(20, 49);
+
+
+
 

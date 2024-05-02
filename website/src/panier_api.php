@@ -22,10 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     <div class="movie">
                     <img src="<?php echo './img/'.$movie['image'].'.jpg'; ?>" alt="<?php echo $movie['title']; ?>">
                         <h2><?php echo $movie['title']; ?></h2>
-                        <p>Prix : <?php echo $movie['price']; ?> €</p>
+                        <p>Price : <?php echo $movie['price']; ?> €</p>
                         <form action="panier_api.php" method="POST">
                             <input type="hidden" name="id_cart" value="<?php echo $movie['id']; ?>">
-                            <button type="submit" name="delete_movie">🗑️Supprimer</button>
+                            <button type="submit" name="delete_movie">🗑️ Delete</button>
                         </form>
                     </div>
                     <?php
@@ -33,24 +33,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             }
             ?>
             <div class="total">
-                <h3>Total du panier : <?php echo $total_price; ?> €</h3>
+                <h3>Cart total: <?php echo $total_price; ?> €</h3>
             </div>
             <div class="empty">
                 <form action="panier_api.php" method="POST">
-                    <button type="submit" name="clear_cart">Vider le panier</button>
+                    <button type="submit" name="clear_cart">Clear the cart</button>
                 </form>
 
             </div>
             <?php
             
             } else {
-                echo "Erreur lors de la conversion de la réponse JSON.";
+                echo "Error converting JSON response.";
             }
         } else {
-            echo json_encode(["message" => "Erreur lors de la récupération du panier."]);
+            echo json_encode(["message" => "Error retrieving cart."]);
         }
     } else {
-        echo json_encode(["message" => "ID utilisateur non disponible."]);
+        echo json_encode(["message" => "User ID not available."]);
     }
 
 } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addmovie'])) { 
@@ -103,10 +103,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         curl_close($curl);
         
         if ($http_status === 200) {
-            echo '<script>alert("Panier vidé avec succès."); window.location.href = "panier.php";</script>';
+            echo '<script>alert("Cart successfully emptied."); window.location.href = "panier.php";</script>';
             exit;
         } else if ($http_status === 400){
-            echo '<script>alert("Le panier est vide."); window.location.href = "panier.php";</script>';
+            echo '<script>alert("The cart is empty."); window.location.href = "panier.php";</script>';
             exit;
         }
         
@@ -115,12 +115,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             exit;
         }
     } else {
-        echo '<script>alert("ID utilisateur non disponible."); window.location.href = "panier.php";</script>';
+        echo '<script>alert("User ID not available."); window.location.href = "panier.php";</script>';
         exit;
     }
 }
 
 else {
     http_response_code(405);
-    echo json_encode(["message" => "Méthode non autorisée."]);
+    echo json_encode(["message" => "Method not allowed."]);
 }

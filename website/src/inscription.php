@@ -10,18 +10,18 @@
 
 <body>
     <?php require_once 'basicheader.php' ?>
-   <h1>Inscription</h1>
+   <h1>Registration</h1>
 
 
    <div id="formulaire">
     <form id="inscriptionForm" action="inscription_api.php" method="post">
         <div id="name_content">
             <label id="name_plh">Nom</label><br>
-            <input type="text" id="name" name="name" placeholder='Nom' required><br>
+            <input type="text" id="name" name="name" placeholder='Lastname' required><br>
         </div>
         <div id="firstname_content">
             <label id="firstname_plh">Prenom</label><br>
-            <input type="text" id="firstname" name="firstname" placeholder='Prénom' required><br>
+            <input type="text" id="firstname" name="firstname" placeholder='Firstname' required><br>
         </div>  
         <div id="mail_content">
             <label id="mail_plh">Mail</label><br>
@@ -29,10 +29,10 @@
         </div>
         <div id="mdp_content">
             <label id="mdp_plh">Mot de passe</label><br>
-            <input type="text" id="mdp" name="mdp" placeholder='Mot de passe' required><br>
+            <input type="text" id="mdp" name="mdp" placeholder='Password' required><br>
         </div>
 
-        <input id="button_content" type="submit" value="Envoyer">
+        <input id="button_content" type="submit" value="Send">
         
     </form> 
     
@@ -62,12 +62,12 @@
                     window.location.href = 'connexion.php';
                 } else {
                     
-                    alert('Une erreur est survenue lors de l\'inscription.');
+                    alert('An error occurred during registration.');
                 }
             })
             .catch(error => {
                 
-                console.error('Erreur de réseau :', error);
+                console.error('Network Error :', error);
             });
         });
     </script>

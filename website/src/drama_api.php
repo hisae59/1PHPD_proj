@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             echo "</div>";
             }
         }else{
-            echo "Erreur lors de la conversion de la réponse JSON.";
+            echo "Error converting JSON response.";
         }
         
             

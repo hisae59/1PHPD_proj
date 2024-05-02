@@ -26,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }   
     
     else {
-        // Gérer l'échec de la connexion
         $error_message = $response['message'] ?? 'Erreur de connexion';
         header('Location: connexion.php');
         exit;

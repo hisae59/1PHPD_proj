@@ -44,7 +44,7 @@ if (isset($_SESSION['user'])) {
                 </div>
                 <div id="mdp_content">
                     <label id="mdp_plh">Password</label><br>
-                    <input type="text" id="mdp" name="mdp" placeholder='Mot de passe' required><br>
+                    <input type="text" id="mdp" name="mdp" placeholder='Password' required><br>
                 </div>
 
                 <input id="button_content" type="submit" value="Send">
@@ -64,7 +64,7 @@ if (isset($_SESSION['user'])) {
             </div>
             <div id="email"><h3>Account E-mail: <?php echo $email; ?></h3></div>
             <a href="panier.php"><p>See your movies cart</p></a>
-            <div id="button_deco"><a href="deconnexion_api.php"><button>Deconnexion</button></a></div>   
+            <div id="button_deco"><a href="deconnexion_api.php"><button>Log out</button></a></div>   
         </div>
         
     <?php endif; ?>

@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             }
         }
         else{
-            echo "Erreur lors de la conversion de la réponse JSON.";
+            echo "Error converting JSON response.";
         }
             
         

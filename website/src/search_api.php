@@ -1,5 +1,5 @@
 <?php
-// Utiliser cURL pour envoyer une requête GET à l'API de recherche avec la chaîne de recherche
+
 $query = $_GET['query'] ?? '';
 
 if (!empty($query)) {
@@ -9,13 +9,13 @@ if (!empty($query)) {
     $response = curl_exec($curl);
     curl_close($curl);
     
-    // Traiter la réponse et afficher les résultats sur la page search.php
+    
     $movies = json_decode($response, true);
 
     if (isset($movies['message']) && $movies['message'] === "No result found."){
         echo "<h2>Aucun résulat trouvé.</h2>"; 
     }else{
-        // Afficher les résultats dans la page search.php
+        
         foreach ($movies as $movie) {
             echo "<div class='movie'>";
             echo "<h2>" . $movie['title'] . "</h2>";

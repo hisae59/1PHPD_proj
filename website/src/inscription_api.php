@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'mdp' => $_POST['mdp'] ?? '',
     ];
 
-    // Convertir les données du formulaire en JSON
+    
     $postDataJson = json_encode($postData);
 
     curl_setopt($curl, CURLOPT_URL, "http://php-api/users");
@@ -19,15 +19,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     curl_setopt($curl, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
     curl_setopt($curl, CURLOPT_POSTFIELDS, $postDataJson);
 
-    // Exécution de la requête et récupération de la réponse
+   
     $response = curl_exec($curl);
 
-    // Vérification des erreurs
+    
     if (curl_errno($curl)) {
         echo 'Erreur cURL : ' . curl_error($curl);
     } else {
-        //header("Location: ../connexion.php");
-        //exit;
+        
         preg_match_all('/\{(?:[^{}]|(?R))*\}/', $response, $matches);
 
         foreach ($matches[0] as $jsonObject) {
@@ -43,6 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     }
     
-    // Fermeture de la session cURL
+
     curl_close($curl);
 }

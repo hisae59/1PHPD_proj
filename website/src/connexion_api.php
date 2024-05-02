@@ -13,11 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $response = curl_exec($curl);
     curl_close($curl);
     
-    // Décoder la réponse avant d'envoyer tout contenu
+   
     $response = json_decode($response, true);
 
     if ($response && $response['message'] == 'Login successful.') {
-        // Démarrer la session et stocker les informations de l'utilisateur
+        
         
         $_SESSION['user'] = $response['user'];
         
@@ -26,9 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     
     } else {
-        // Gérer l'échec de la connexion
+        
         $error_message = $response['message'] ?? 'Erreur de connexion';
-        echo $error_message; // Envoyer le contenu après toute gestion des en-têtes
+        echo $error_message;
     }
 }
 

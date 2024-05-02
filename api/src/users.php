@@ -57,7 +57,7 @@
                 $stmt->execute();
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
-                // Gérer les erreurs de base de données
+                
                 return [];
             }
         }

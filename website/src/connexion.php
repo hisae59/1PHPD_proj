@@ -1,8 +1,8 @@
 <?php
-// Inclure le fichier init.php pour démarrer la session automatiquement
+
 require_once 'init.php';
 
-// Vérifier si l'utilisateur est connecté
+
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
     $id=$user['id_user'];
@@ -65,5 +65,7 @@ if (isset($_SESSION['user'])) {
         </div>
         
     <?php endif; ?>
+
+    <?php require "footer.php"; ?>
 </body>
 </html>

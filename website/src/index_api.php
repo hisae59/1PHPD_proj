@@ -1,21 +1,21 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    // Tableau des ID de films à récupérer
+    
     $movie_ids = [3,2,4,1];
 
-    // Parcourir chaque ID de film
+    
     foreach ($movie_ids as $id_movie) {
-        // Appeler l'API pour récupérer les informations du film avec l'ID spécifié
+        
         $curl = curl_init("http://php-api/movie?id=$id_movie");
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($curl);
         curl_close($curl);
 
-        // Décoder la réponse JSON
+        
         $movie_data = json_decode($response, true);
 
-        // Vérifier si les données du film ont été récupérées avec succès
+        
         if ($movie_data && isset($movie_data['id_movie'])) {
             echo "<div class='movie'>";
             

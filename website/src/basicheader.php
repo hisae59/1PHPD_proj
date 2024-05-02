@@ -55,10 +55,6 @@
                             </div>
                         </div>
                     </div>
-                    
-
-                    
-
                     <ul id="js-menu">
                         <li><h3><a href="index.php"><img src="img/logo_site.png" width=" 120px" /></a></h3></li>
 

@@ -42,31 +42,31 @@
 </body>
 <script>
         document.getElementById('inscriptionForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Empêcher l'envoi par défaut du formulaire
+            event.preventDefault(); 
 
-            // Créer un objet FormData à partir du formulaire
+            
             var formData = new FormData(this);
 
-            // Effectuer une requête AJAX vers inscription_api.php
+            
             fetch('inscription_api.php', {
                 method: 'POST',
                 body: formData
             })
             .then(response => response.json())
             .then(data => {
-                // Vérifier la réponse de l'API
+                
                 if (data.message) {
-                    // Afficher le message de confirmation
+                    
                     alert(data.message);
-                    // Rediriger vers la page de connexion
+                    
                     window.location.href = 'connexion.php';
                 } else {
-                    // Afficher un message d'erreur si la réponse de l'API est invalide
+                    
                     alert('Une erreur est survenue lors de l\'inscription.');
                 }
             })
             .catch(error => {
-                // Afficher un message d'erreur en cas d'échec de la requête
+                
                 console.error('Erreur de réseau :', error);
             });
         });

@@ -13,8 +13,6 @@
 
 <body>
     <?php require_once 'basicheader.php'?>
-    
-    
     <div class="listmov">
         <?php require_once 'search_api.php' ?>
     </div>

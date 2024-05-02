@@ -74,7 +74,6 @@ class CartController {
 
     public function clearCart($id_user) {
         try {
-            // Vérifier d'abord si le panier de l'utilisateur n'est pas déjà vide
             $stmt_check = $this->conn->prepare("SELECT COUNT(*) AS count FROM cart WHERE id_user = :id_user");
             $stmt_check->bindParam(":id_user", $id_user);
             $stmt_check->execute();
@@ -86,7 +85,7 @@ class CartController {
                 return;
             }
     
-            // Si le panier n'est pas vide, alors procéder à sa suppression
+            
             $stmt_delete = $this->conn->prepare("DELETE FROM cart WHERE id_user = :id_user");
             $stmt_delete->bindParam(":id_user", $id_user);
             if ($stmt_delete->execute()) {

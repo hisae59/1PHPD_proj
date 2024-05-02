@@ -81,11 +81,10 @@ class ApiRouter {
                                 break;
                         }
                         break;
-            case 'movie_index': // Nouveau cas pour récupérer les informations d'un film
+            case 'movie_index': 
                         $controller = new MovieController();
                         switch ($requestMethod) {
                             case 'GET':
-                                // Appel de la méthode pour récupérer les informations du film
                                 $controller->getMovie();
                                 break;
                             default:

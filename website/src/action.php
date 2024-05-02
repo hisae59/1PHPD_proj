@@ -8,7 +8,6 @@
 </head>
 <body>
 <?php require "basicheader.php"; ?>
-
 <div id="categ">
     <h1><a href="action.php">Action</a></h1>
     <h1><a href="drama.php">Drama</a></h1>

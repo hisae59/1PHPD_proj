@@ -4,7 +4,7 @@ require_once 'database/database.php';
 
 class MovieController {
     public function getMovie() {
-        // Récupérer l'ID du film à partir de la requête GET
+        
         $id = $_GET['id'] ?? null;
         if (!$id) {
             http_response_code(400);
@@ -12,10 +12,8 @@ class MovieController {
             return;
         }
 
-        // Se connecter à la base de données
         $conn = Database::getInstance();
 
-        // Préparer la requête SQL pour récupérer les informations du film
         $sql = "SELECT movie.*, director.fname AS director_fname, director.lname AS director_lname,
                 GROUP_CONCAT(CONCAT(actor.fname, ' ', actor.lname) SEPARATOR ', ') AS actors
 
@@ -30,17 +28,15 @@ class MovieController {
         $stmt->bindParam(':id', $id);
         $stmt->execute();
 
-        // Vérifier si le film existe
         if ($stmt->rowCount() === 0) {
             http_response_code(404);
             echo json_encode(["message" => "Movie not found"]);
             return;
         }
 
-        // Récupérer les données du film
         $movie = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // Préparer la requête pour récupérer les catégories du film
+        
         $sqlCategories = "SELECT categories.name
                           FROM categories
                           INNER JOIN film_categ ON categories.id_categorie = film_categ.id_categ
@@ -50,22 +46,22 @@ class MovieController {
         $stmtCategories->bindParam(':id', $id);
         $stmtCategories->execute();
 
-        // Récupérer les catégories du film
+        
         $categories = $stmtCategories->fetchAll(PDO::FETCH_COLUMN);
 
-        // Ajouter les catégories au tableau du film
+        
         $movie['categories'] = $categories;
 
-        // Envoyer les données du film en JSON
+        
         header('Content-Type: application/json');
         echo json_encode($movie);
     }
 
     public function getActionMovies() {
-        // Se connecter à la base de données
+        
         $conn = Database::getInstance();
 
-        // Préparer la requête SQL pour récupérer les films de la catégorie "action"
+        
         $sql = "SELECT movie.*, director.fname AS director_fname, director.lname AS director_lname
                 FROM movie
                 LEFT JOIN director ON movie.director_id = director.id
@@ -76,9 +72,9 @@ class MovieController {
         $stmt = $conn->prepare($sql);
         $stmt->execute();
 
-        // Vérifier s'il y a des résultats
+        
         if ($stmt->rowCount() > 0) {
-            // Afficher les films de la catégorie "action"
+            
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "<div class='movie'>";
                 echo "<h2>{$row['title']}</h2>";

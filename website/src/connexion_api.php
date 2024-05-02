@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $response = curl_exec($curl);
     curl_close($curl);
     
-    // Décoder la réponse avant d'envoyer tout contenu
+
     $response = json_decode($response, true);
 
     if ($response && $response['message'] == 'Login successful.') {

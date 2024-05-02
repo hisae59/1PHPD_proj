@@ -1,5 +1,4 @@
 <?php
-// Inclure le fichier init.php pour démarrer la session automatiquement
 require_once 'init.php';
 
 // Vérifier si l'utilisateur est connecté

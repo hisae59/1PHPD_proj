@@ -1,11 +1,8 @@
 <?php
 class SearchController {
     public function searchMovies($query) {
-        // Connexion à la base de données
+        
         $conn = Database::getInstance();
-       
-
-        // Préparer la requête SQL pour rechercher des films par titre ou réalisateur
         $stmt = $conn->prepare("SELECT movie.id_movie, movie.title, movie.image FROM movie INNER JOIN director ON movie.director_id = director.id_director WHERE movie.title LIKE :query OR CONCAT(director.fname, ' ', director.lname) LIKE :query");
         $stmt->execute(array(':query' => '%' . $query . '%'));
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);

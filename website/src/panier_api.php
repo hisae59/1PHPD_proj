@@ -124,4 +124,3 @@ else {
     http_response_code(405);
     echo json_encode(["message" => "Méthode non autorisée."]);
 }
-

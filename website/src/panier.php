@@ -34,7 +34,6 @@ if (isset($_SESSION['user'])) {
     <h3><?php echo $panier_message; ?></h3>
     <div id="cart_movie">
         <?php
-        
         if (isset($_SESSION['user'])){
             if (isset($_SESSION['user']['cart'])) {
                 require_once 'panier_api.php';
@@ -44,7 +43,6 @@ if (isset($_SESSION['user'])) {
                 
             }
         }
-        
         ?>
 
     </div>

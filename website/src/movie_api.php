@@ -1,20 +1,19 @@
 <?php require "basicheader.php";
 
-        // Tableau des ID de films à récupérer
-        $movie_id = $_GET['id'];
+            $movie_id = $_GET['id'];
         
-        // Parcourir chaque ID de film
+        
     
-            // Appeler l'API pour récupérer les informations du film avec l'ID spécifié
+            
             $curl = curl_init("http://php-api/movie_index?id=$movie_id");
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
             $response = curl_exec($curl);
             curl_close($curl);
     
-            // Décoder la réponse JSON
+            
             $movie_data = json_decode($response, true);
     
-            // Vérifier si les données du film ont été récupérées avec succès
+            
             if ($movie_data && isset($movie_data['id_movie'])) {
                 echo "<div class='movie'>";
                 

@@ -29,6 +29,5 @@ require_once 'init.php';
             <?php require_once 'index_api.php';?>
     </div>
     <?php require "footer.php";?>
-    
 </body>
 </html>

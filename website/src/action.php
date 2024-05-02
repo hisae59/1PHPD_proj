@@ -17,5 +17,6 @@
 <div id="results">
     <?php require_once 'action_api.php';?> 
 </div>
+<?php require_once 'footer.php' ?>
 </body>
 </html>

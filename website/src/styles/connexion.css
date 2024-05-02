@@ -27,6 +27,7 @@ h2{
     font-weight: 600;
     display:flex;
     justify-content: center;
+    margin-bottom:10%;
 }
 
 #formulaire form{
@@ -95,8 +96,9 @@ h2{
 #compte{
     display:flex;
     flex-direction:column;
-    
     padding:1.2%;
+    margin-bottom:10%;
+    
 }
 
 

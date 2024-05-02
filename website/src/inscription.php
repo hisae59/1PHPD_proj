@@ -35,9 +35,10 @@
         <input id="button_content" type="submit" value="Envoyer">
         
     </form> 
+    
 
    </div>
-
+   <?php require_once 'footer.php' ?>
 </body>
 <script>
         document.getElementById('inscriptionForm').addEventListener('submit', function(event) {

@@ -19,7 +19,7 @@
         <?php require_once 'search_api.php' ?>
     </div>
     
-
+    <?php require_once 'footer.php' ?>
 
     
 </body>

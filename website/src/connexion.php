@@ -10,7 +10,7 @@ if (isset($_SESSION['user'])) {
     $lname = $user['lname']; 
     $email = $user['email'];
     $cart = $user['cart'];
-    $welcome_message = "Bienvenue {$fname} ! Vous êtes connecté(e).";
+    $welcome_message = "Welcome {$fname} ! You are now connected.";
     $hide_form = true;
 }else{
     $hide_form = false;
@@ -29,9 +29,9 @@ if (isset($_SESSION['user'])) {
 
 <body>
     <?php require "basicheader.php";?>
-    <h1>Compte</h1>
+    <h1>Account</h1>
     <?php if (!$hide_form) : ?>
-        <h2>Connexion</h2>
+        <h2>Log In</h2>
         <div id="formulaire">
             <form action="connexion_api.php" method="post">
                 <div id="mail_content">
@@ -39,12 +39,12 @@ if (isset($_SESSION['user'])) {
                     <input type="text" id ="mail" name="mail" placeholder='Mail'required><br>
                 </div>
                 <div id="mdp_content">
-                    <label id="mdp_plh">Mot de passe</label><br>
+                    <label id="mdp_plh">password</label><br>
                     <input type="text" id="mdp" name="mdp" placeholder='Mot de passe' required><br>
                 </div>
 
                 <input id="button_content" type="submit" value="Envoyer">
-                <a href="inscription.php"><p>Vous n'avez pas de compte ? Inscrivez-vous !</p></a>
+                <a href="inscription.php"><p>You don't have an account ? Sign Up !</p></a>
             </form>
         </div>
     <?php endif; ?>
@@ -54,14 +54,14 @@ if (isset($_SESSION['user'])) {
     <?php if (isset($welcome_message)) : ?>
         <div id="compte">
             <p id="welcome"><?php echo $welcome_message; ?></p> 
-            <h2>Information du compte</h2>
+            <h2>Account's Information</h2>
             <div id="names">
-                <h3>Prénom : <?php echo $fname; ?></h3>
-                <h3>Nom: <?php echo $lname; ?></h3>
+                <h3>First Name : <?php echo $fname; ?></h3>
+                <h3>Last Name: <?php echo $lname; ?></h3>
             </div>
-            <div id="email"><h3>Mail du compte: <?php echo $email; ?></h3></div>
-            <a href="panier.php"><p>Voir votre panier de films</p></a>
-            <div id="button_deco"><a href="deconnexion_api.php"><button>Deconnexion</button></a></div>   
+            <div id="email"><h3>Account's Mail: <?php echo $email; ?></h3></div>
+            <a href="panier.php"><p>See your cart</p></a>
+            <div id="button_deco"><a href="deconnexion_api.php"><button>Log Out</button></a></div>   
         </div>
         
     <?php endif; ?>

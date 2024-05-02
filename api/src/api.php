@@ -72,7 +72,7 @@ class ApiRouter {
                                 $controller->clearCart($id_user);
                             } else {
                                 http_response_code(400);
-                                echo json_encode(["message" => "Paramètre invalide pour supprimer le panier."]);
+                                echo json_encode(["message" => "Parameter invalid to delete cart."]);
                             }break;
                         default:
                             http_response_code(405);

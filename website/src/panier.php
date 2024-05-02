@@ -10,10 +10,10 @@ if (isset($_SESSION['user'])) {
     $nom = $user['lname'];
     $id_user = $user['id_user'];
     
-    $panier_message = "Bienvenue $prenom $nom ! Voici le contenu de votre panier.";
+    $panier_message = "Welcome $prenom $nom ! Here is your cart's content.";
 } else {
     
-    $panier_message = "Vous devez vous connecter pour accéder à votre panier !";
+    $panier_message = "You need to be connected to access to your cart !";
 }
 
 ?>
@@ -30,7 +30,7 @@ if (isset($_SESSION['user'])) {
 <body>
     <?php require "basicheader.php";?>
     
-    <h1>Panier</h1>
+    <h1>Cart</h1>
     <h3><?php echo $panier_message; ?></h3>
     <div id="cart_movie">
         <?php
@@ -40,7 +40,7 @@ if (isset($_SESSION['user'])) {
                 require_once 'panier_api.php';
                 
             }else{
-                echo "Votre panier est vide.";
+                echo "Your cart is empty";
                 
             }
         }

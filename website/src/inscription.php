@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <link rel="stylesheet" type="text/css" href="style/inscription.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-    <title>Inscription</title>
+    <title>Register</title>
 </head>
 
 <body>
@@ -62,12 +62,12 @@
                     window.location.href = 'connexion.php';
                 } else {
                     
-                    alert('Une erreur est survenue lors de l\'inscription.');
+                    alert('An Error appeared during Sign Up');
                 }
             })
             .catch(error => {
                 
-                console.error('Erreur de réseau :', error);
+                console.error('Network Error :', error);
             });
         });
     </script>

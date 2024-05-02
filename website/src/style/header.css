@@ -131,10 +131,12 @@ span{
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     font-size: 20px;
-    margin: 0;
     
    
   }
+
+
+  
 
 #moviepagebtn button {
     background-color: #467599;
@@ -168,8 +170,6 @@ span{
     transform: translate(-50%, -50%);
     margin-top: 2em;
     margin-left: 6%;
-    display: flex;
-    flex-direction: row;
 }
 
 #menu-toggle{

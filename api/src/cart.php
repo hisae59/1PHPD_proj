@@ -12,7 +12,7 @@ class CartController {
     public function getCart($id_user) {
         
         try {
-            $stmt = $this->conn->prepare("SELECT movie.title, movie.image, movie.price FROM cart JOIN movie ON cart.id_movie = movie.id_movie WHERE cart.id_user = :id_user");
+            $stmt = $this->conn->prepare("SELECT cart.id, movie.title, movie.image, movie.price FROM cart JOIN movie ON cart.id_movie = movie.id_movie WHERE cart.id_user = :id_user");
             $stmt->bindParam(":id_user", $id_user, PDO::PARAM_INT);
             $stmt->execute();
             
@@ -46,7 +46,7 @@ class CartController {
 
     public function removeFromCart($id_cart) {
         try {
-            $stmt = $this->conn->prepare("DELETE FROM cart WHERE id = :id_cart");
+            $stmt = $this->conn->prepare("DELETE FROM cart WHERE cart.id = :id_cart");
             $stmt->bindParam(":id_cart", $id_cart);
             if ($stmt->execute()) {
                 http_response_code(200);
@@ -58,6 +58,36 @@ class CartController {
         } catch (PDOException $e) {
             http_response_code(500);
             echo json_encode(["message" => "Database error: " . $e->getMessage()]);
+        }
+    }
+
+    public function clearCart($id_user) {
+        try {
+            // Vérifier d'abord si le panier de l'utilisateur n'est pas déjà vide
+            $stmt_check = $this->conn->prepare("SELECT COUNT(*) AS count FROM cart WHERE id_user = :id_user");
+            $stmt_check->bindParam(":id_user", $id_user);
+            $stmt_check->execute();
+            $cart_count = $stmt_check->fetchColumn();
+    
+            if ($cart_count === 0) {
+                http_response_code(400);
+                echo json_encode(["message" => "The cart is already empty."]);
+                return;
+            }
+    
+            // Si le panier n'est pas vide, alors procéder à sa suppression
+            $stmt_delete = $this->conn->prepare("DELETE FROM cart WHERE id_user = :id_user");
+            $stmt_delete->bindParam(":id_user", $id_user);
+            if ($stmt_delete->execute()) {
+                http_response_code(200);
+                echo json_encode(["message" => "Cart successfully emptied."]);
+            } else {
+                http_response_code(500);
+                echo json_encode(["message" => "Failed to delete cart."]);
+            }
+        } catch (PDOException $e) {
+            http_response_code(500);
+            echo json_encode(["message" => "Database Error : " . $e->getMessage()]);
         }
     }
 }

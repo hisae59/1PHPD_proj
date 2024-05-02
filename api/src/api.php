@@ -51,32 +51,35 @@ class ApiRouter {
                     }
                     break;
             case 'cart': 
-                        session_start();
-                        $controller = new CartController();
-                        switch ($requestMethod) {
-                            case 'GET':
-                                $id_user = $_GET['id_user'] ?? null;                                
-                                $controller->getCart($id_user);
-                                break;
-                            case 'POST':
-                                // Récupérer les données de la requête
-                                $data = json_decode(file_get_contents('php://input'), true);
-                                $id_user = $data['id_user'] ?? '';
-                                $id_movie = $data['id_movie'] ?? '';
-                                $controller->addToCart($id_user, $id_movie);
-                                break;
-                            case 'DELETE':
-                                // Récupérer l'id du film à supprimer du panier depuis la requête
-                                parse_str(file_get_contents('php://input'), $deleteParams);
-                                $id_cart = $deleteParams['id_cart'] ?? '';
+                    session_start();
+                    $controller = new CartController();
+                    switch ($requestMethod) {
+                        case 'GET':
+                            $id_user = $_GET['id_user'] ?? null;                                
+                            $controller->getCart($id_user);
+                            break;
+                        case 'POST':
+                            $id_user = $_GET['id_user'] ;  
+                            $id_movie = $_GET['id_movie'] ?? null;  
+                            $controller->addToCart($id_user, $id_movie);
+                            break;
+                        case 'DELETE':
+                            if (isset($_GET['id_cart'])) {
+                                $id_cart = $_GET['id_cart'];
                                 $controller->removeFromCart($id_cart);
-                                break;
-                            default:
-                                http_response_code(405);
-                                echo json_encode(["message" => "Method not allowed"]);
-                                break;
-                        }
-                        break;
+                            } elseif (isset($_GET['clear_cart'])) {
+                                $id_user = $_GET['id_user'] ?? null;
+                                $controller->clearCart($id_user);
+                            } else {
+                                http_response_code(400);
+                                echo json_encode(["message" => "Paramètre invalide pour supprimer le panier."]);
+                            }break;
+                        default:
+                            http_response_code(405);
+                            echo json_encode(["message" => "Method not allowed"]);
+                            break;
+                    }
+                    break;
             case 'movie': // Nouveau cas pour récupérer les informations d'un film
                         $controller = new MovieController();
                         switch ($requestMethod) {

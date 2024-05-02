@@ -27,10 +27,9 @@ h2{
     font-weight: 600;
     display:flex;
     justify-content: center;
-    margin-bottom: 6em;
 }
 
-form{
+#formulaire form{
     
     display:flex;
     flex-direction:column;
@@ -141,4 +140,30 @@ form{
 
 #button_deco{
     width:30%;
+}
+
+#button_deco button{
+    background-color: #6CB0E4;
+    color:white;
+    font-family:Poppins;
+    border:none;
+    padding:2%;
+    border-radius:7px;
+}
+
+#button_deco button:hover{
+    background-color: #1d3557;
+    cursor:pointer;
+    
+    
+}
+
+@media screen and (max-width: 768px){
+    #formulaire form{
+        width:90%;
+    }
+
+    #formulaire a{
+        text-align: center;
+    }
 }
